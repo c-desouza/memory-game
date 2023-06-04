@@ -1,15 +1,3 @@
-/* PSEUDO CODE */
-
-/* 
-1. store the nmaes and data-value of each animal in an object and then store all the objects in an array
-2. randomly generate two instances of each animal
-   2.1 Use the random function and generate four numbers from 0-15
-   2.2 the animal associated with one of the four numbers will be  one among the four animals, the rest will be chosen in same way
-3. populate a different array with each 2 copies of the above selected numbers
-4. generate a random number between one and 8 (inclusive), store the previous number(image) at that location in grid
-5. If a number already chosen you can't choose it again.  
-
-*/
 const animals = [
   "bear",
   "camel",
@@ -37,4 +25,29 @@ for (let i = 1; i <= 4; i++) {
     randomIndex = Math.floor(Math.random() * 16);
   }
   chosenAnimals.push(randomIndex);
+}
+
+const grid = [];
+const gridLocations = [];
+
+for (let i = 1; i <= 8; i++) {
+  let locationInGrid = Math.floor(Math.random() * 8);
+  if (!gridLocations.includes(locationInGrid)) {
+    gridLocations.push(locationInGrid);
+    console.log("hi");
+  } else {
+    while (gridLocations.includes(locationInGrid)) {
+      locationInGrid = Math.floor(Math.random() * 8);
+    }
+    gridLocations.push(locationInGrid);
+  }
+}
+
+for (let i = 0, j = 0; i < 8; i++, j++) {
+  if (j < 4) {
+    grid[gridLocations[i]] = chosenAnimals[j];
+  } else {
+    j = -1;
+    i--;
+  }
 }
