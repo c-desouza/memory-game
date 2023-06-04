@@ -51,3 +51,10 @@ for (let i = 0, j = 0; i < 8; i++, j++) {
     i--;
   }
 }
+
+const card = document.querySelectorAll(".card");
+card.forEach((item) => {
+  item.addEventListener("click", () => {
+    item.classList.toggle("card");
+  });
+});
