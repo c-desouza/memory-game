@@ -4,8 +4,9 @@
   grid-template-columns: repeat(4, 180px);
 }
 
-.item {
-  background: blueviolet;
+.card {
+  background: url("images/card-bg.jpg");
   height: 250px;
   border-radius: 10px;
+  background-size: 299px 461px;
 }
