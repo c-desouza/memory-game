@@ -1,0 +1,18 @@
+const animals = [
+  "bear",
+  "camel",
+  "cat",
+  "dog",
+  "elephant",
+  "fox",
+  "giraffe",
+  "horse",
+  "lion",
+  "owl",
+  "panda",
+  "penguin",
+  "pig",
+  "rabbit",
+  "ram",
+  "squirrel",
+];
