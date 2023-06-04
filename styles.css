@@ -1,0 +1,11 @@
+.container {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: repeat(4, 180px);
+}
+
+.item {
+  background: blueviolet;
+  height: 250px;
+  border-radius: 10px;
+}
