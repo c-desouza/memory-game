@@ -60,31 +60,33 @@ let click = 0;
 let firstTarget, secondTarget;
 
 card.forEach((item) => {
-  item.addEventListener("dblclick", (e) => {
-    item.classList.toggle("card");
-    for (let i = 0; i < 8; i++) {
-      if (e.target.getAttribute("data-index") == i) {
-        click++;
-        if (click == 1) {
-          firstTarget = i;
-        }
-        if (click == 2) {
-          secondTarget = i;
-        }
-        if (click > 2) {
-          click = 0;
-        }
-      } else {
-        continue;
-      }
+  item.addEventListener("click", (e) => {
+    click++;
+
+    if (click == 1) {
+      firstTarget = e.target.getAttribute("data-index");
+      item.classList.remove("card");
+    }
+    if (click == 2) {
+      secondTarget = e.target.getAttribute("data-index");
+      item.classList.remove("card");
+      setTimeout(areFlippedCardsSame, 1000);
+    }
+    if (click > 2) {
+      click = 0;
     }
 
-    if (click == 2) {
-      if (grid[firstTarget] == grid[secondTarget]) {
-        alert("You won this round");
-      } else {
-        alert("You lost this round");
-        item.classList.toggle("card");
+    function areFlippedCardsSame() {
+      if (click == 2) {
+        if (grid[firstTarget] == grid[secondTarget]) {
+          alert("You won this round");
+        } else {
+          alert("You lost this round");
+          const cardsNotSame = document.querySelectorAll(".container > div");
+          cardsNotSame.forEach((card) => {
+            card.setAttribute("class", "card");
+          });
+        }
       }
     }
   });
