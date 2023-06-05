@@ -16,8 +16,9 @@
   height: 250px;
   width: 180px;
   border-radius: 10px;
-  background-color: black;
   color: aliceblue;
+  /* background-size: 255px 331px; */
+  background-size: 182px 252px;
 }
 
 .animals-container {
