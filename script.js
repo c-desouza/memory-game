@@ -58,3 +58,16 @@ card.forEach((item) => {
     item.classList.toggle("card");
   });
 });
+
+const body = document.querySelector("body");
+
+const animalGridContainer = document.createElement("div");
+animalGridContainer.classList.add("animals-container");
+
+for (let i = 0; i < 8; i++) {
+  const animal = document.createElement("div");
+  animal.classList.add("animal");
+  animalGridContainer.appendChild(animal);
+}
+
+body.appendChild(animalGridContainer);
