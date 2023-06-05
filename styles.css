@@ -1,4 +1,5 @@
-.container {
+.container,
+.animals-container {
   display: grid;
   gap: 1.5rem;
   grid-template-columns: repeat(4, 180px);
@@ -9,4 +10,19 @@
   height: 250px;
   border-radius: 10px;
   background-size: 299px 461px;
+}
+
+.animal {
+  height: 250px;
+  width: 180px;
+  border-radius: 10px;
+  background-color: black;
+  color: aliceblue;
+}
+
+.animals-container {
+  position: absolute;
+  left: 8px;
+  top: 9px;
+  z-index: -1;
 }
