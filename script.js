@@ -66,10 +66,12 @@ card.forEach((item) => {
     if (click == 1) {
       firstTarget = e.target.getAttribute("data-index");
       item.classList.remove("card");
+      item.classList.add("selected");
     }
     if (click == 2) {
       secondTarget = e.target.getAttribute("data-index");
       item.classList.remove("card");
+      item.classList.add("selected");
       setTimeout(areFlippedCardsSame, 1000);
     }
     if (click > 2) {
@@ -80,11 +82,18 @@ card.forEach((item) => {
       if (click == 2) {
         if (grid[firstTarget] == grid[secondTarget]) {
           alert("You won this round");
+          const cards = document.querySelectorAll(".container > div");
+          cards.forEach((card) => {
+            card.classList.replace("selected", "correct-choice");
+          });
         } else {
           alert("You lost this round");
-          const cardsNotSame = document.querySelectorAll(".container > div");
-          cardsNotSame.forEach((card) => {
-            card.setAttribute("class", "card");
+          const cards = document.querySelectorAll(".container > div");
+          cards.forEach((card) => {
+            if (card.getAttribute("class") == "selected") {
+              card.classList.remove("selected");
+              card.setAttribute("class", "card");
+            }
           });
         }
       }
