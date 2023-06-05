@@ -53,9 +53,40 @@ for (let i = 0, j = 0; i < 8; i++, j++) {
 }
 
 const card = document.querySelectorAll(".card");
+
+const animalGridItems = document.querySelectorAll(".animal");
+
+let click = 0;
+let firstTarget, secondTarget;
+
 card.forEach((item) => {
-  item.addEventListener("click", () => {
+  item.addEventListener("dblclick", (e) => {
     item.classList.toggle("card");
+    for (let i = 0; i < 8; i++) {
+      if (e.target.getAttribute("data-index") == i) {
+        click++;
+        if (click == 1) {
+          firstTarget = i;
+        }
+        if (click == 2) {
+          secondTarget = i;
+        }
+        if (click > 2) {
+          click = 0;
+        }
+      } else {
+        continue;
+      }
+    }
+
+    if (click == 2) {
+      if (grid[firstTarget] == grid[secondTarget]) {
+        alert("You won this round");
+      } else {
+        alert("You lost this round");
+        item.classList.toggle("card");
+      }
+    }
   });
 });
 
