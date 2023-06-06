@@ -86,6 +86,7 @@ card.forEach((item) => {
           cards.forEach((card) => {
             card.classList.replace("selected", "correct-choice");
           });
+          noOfWins.textContent = Number(noOfWins.textContent) + 1;
         } else {
           alert("You lost this round");
           const cards = document.querySelectorAll(".container > div");
@@ -95,6 +96,7 @@ card.forEach((item) => {
               card.setAttribute("class", "card");
             }
           });
+          noOfLosses.textContent = Number(noOfLosses.textContent) + 1;
         }
       }
     }
@@ -181,3 +183,13 @@ for (let i = 0; i < 8; i++) {
 }
 
 body.appendChild(animalGridContainer);
+
+const winsResult = document.querySelector(".wins");
+
+const lossesResult = document.querySelector(".losses");
+
+const noOfWins = document.querySelector(".wins > span");
+noOfWins.textContent = 0;
+
+const noOfLosses = document.querySelector(".losses > span");
+noOfLosses.textContent = 0;
