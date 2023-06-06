@@ -1,8 +1,12 @@
+body {
+  display: grid;
+}
 .container,
 .animals-container {
-  display: grid;
+  display: inline-grid;
   gap: 1.5rem;
   grid-template-columns: repeat(4, 180px);
+  justify-self: center;
 }
 
 .card {
@@ -23,7 +27,7 @@
 
 .animals-container {
   position: absolute;
-  left: 8px;
-  top: 9px;
+  /* left: 279px;
+  top: 9px; */
   z-index: -1;
 }
