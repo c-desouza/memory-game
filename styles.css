@@ -31,3 +31,10 @@ body {
   top: 9px; */
   z-index: -1;
 }
+
+.result {
+  position: absolute;
+  z-index: -1;
+  top: 559px;
+  left: 10px;
+}
